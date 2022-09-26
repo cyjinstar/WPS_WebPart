@@ -18,68 +18,65 @@
       <input type="submit" value="Log In" />
     </form>
     <h1 id="greeting" class="hidden"></h1>
-
+    
     <div id="menu-division" class="hidden">
-    <h1> -MENU- </h1>
+        <h1> -MENU- </h1>
+        <script>
+            const receivedData = location.href.split('username')[1];
+            console.log(receivedData); // data
+            
+            // 전달받은 데이터가 한글일 경우
+            console.log(decodeURI(receivedData));
+            </script> 
     
-    <script> session.getAttributeById("username") </script>님 환영합니다!
-    
-    <script>
-    const receivedData = location.href.split('username')[1];
-        console.log(receivedData); // data
-        
-        // 전달받은 데이터가 한글일 경우
-        console.log(decodeURI(receivedData));
-    </script> 
-    
-    <form name ="selProductFrom" method="post" action="add.html">
-    <p>Americano<br>4000won</p>
-    <img 
-    width="150px"
-    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdHhe1HjiVG-6VRD2U0GJldeJxaIvHIxnzQ&usqp=CAU">
-    <br>
-    <input type="number"/>
-    <select class="">
-        <option>HOT</option>
-        <option>ICE</option>
-    </select>
-    <input type="submit" value="추가" />
-    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
+        <div id="menu-select" class="menu">
+            <form name ="Ice">
+                <form name = "IceAmericano">
+                    <p>Americano<br>4000won</p>
+                    <img 
+                    width="150px"
+                    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdHhe1HjiVG-6VRD2U0GJldeJxaIvHIxnzQ&usqp=CAU">
+                    <br>
+                    <input type='button' onclick='count("plus")' value='+'/>
+                    <input type='button' onclick='count("minus")' value='-'/>
+                    <div id='result'>0</div>
+                    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
+                </form>
 
-    
-    <p>CafeLatte<br>4500won</p>
-    <img 
-    width="150px"
-    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpfmSN5Q5YlTFSoa-nJKo2JiaO1DsIQMyyZQ&usqp=CAU">
-    <br>
-    <input type="number"/>
-    <select class="">
-        <option>HOT</option>
-        <option>ICE</option>
-    </select>
-    <input  type="submit" value="추가" />
-    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
-    <br>
-
-
-
-    <p>LemonAde<br>5000won</p>
-    <img 
-    width="150px"
-    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgR8epzihOSXXvisz0bvqKuyv6QJ-lgwNpg&usqp=CAU">
-    <br>
-    <input type="number"/>
-    <select class="">
-        <option>ICE</option>
-    </select>
-    <input type="submit" value="추가" />
-    <br>    
- 
-</form>
-<br>
-<a href="checkOut.html">선택목록 보기</a>
-<br>
-</div>
+                <p>CafeLatte<br>4500won</p>
+                <img 
+                
+                width="150px"
+                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpfmSN5Q5YlTFSoa-nJKo2JiaO1DsIQMyyZQ&usqp=CAU">
+                <br>
+                <input type="number"/>
+                <select class="">
+                    <option>HOT</option>
+                    <option>ICE</option>
+                </select>
+                <input  type="submit" value="추가" />
+                <p style="margin-top: 50px; margin-bottom: 50px;"></p>
+                <br>
+                
+                <p>LemonAde<br>5000won</p>
+                <img 
+                width="150px"
+                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgR8epzihOSXXvisz0bvqKuyv6QJ-lgwNpg&usqp=CAU">
+                <br>
+                <input type="number"/>
+                <select class="">
+                    <option>ICE</option>
+                </select>
+                <input type="submit" value="추가" />
+                <br>
+            </div>
+            
+        </form>
+        <br>
+        <a href="checkOut.html">선택목록 보기</a>
+        <br>
+    </div>
     <script src="app.js"></script>
-  </body>
-</html>
+    
+    </html>
+</body>
