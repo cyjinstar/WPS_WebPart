@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <title> WPS System </title>
   </head>
@@ -20,61 +21,95 @@
     <h1 id="greeting" class="hidden"></h1>
     
     <div id="menu-division" class="hidden">
-        <h1> -MENU- </h1>
-        <script>
-            const receivedData = location.href.split('username')[1];
-            console.log(receivedData); // data
-            
-            // 전달받은 데이터가 한글일 경우
-            console.log(decodeURI(receivedData));
-            </script> 
+        <form name="orderform" id="orderform" method="post" class="orderform" action="/Page" onsubmit="return false;">
     
-        <div id="menu-select" class="menu">
-            <form name ="Ice">
-                <form name = "IceAmericano">
-                    <p>Americano<br>4000won</p>
-                    <img 
-                    width="150px"
-                    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdHhe1HjiVG-6VRD2U0GJldeJxaIvHIxnzQ&usqp=CAU">
-                    <br>
-                    <input type='button' onclick='count("plus")' value='+'/>
-                    <input type='button' onclick='count("minus")' value='-'/>
-                    <div id='result'>0</div>
-                    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
-                </form>
-
-                <p>CafeLatte<br>4500won</p>
-                <img 
-                
-                width="150px"
-                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpfmSN5Q5YlTFSoa-nJKo2JiaO1DsIQMyyZQ&usqp=CAU">
-                <br>
-                <input type="number"/>
-                <select class="">
-                    <option>HOT</option>
-                    <option>ICE</option>
-                </select>
-                <input  type="submit" value="추가" />
-                <p style="margin-top: 50px; margin-bottom: 50px;"></p>
-                <br>
-                
-                <p>LemonAde<br>5000won</p>
-                <img 
-                width="150px"
-                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgR8epzihOSXXvisz0bvqKuyv6QJ-lgwNpg&usqp=CAU">
-                <br>
-                <input type="number"/>
-                <select class="">
-                    <option>ICE</option>
-                </select>
-                <input type="submit" value="추가" />
-                <br>
+            <input type="hidden" name="cmd" value="order">
+            <div class="basketdiv" id="basket">
+                <div class="row head">
+                    <div class="subdiv">
+                        <div class="img">이미지</div>
+                        <div class="pname">상품명</div>
+                    </div>
+                    <div class="subdiv">
+                        <div class="basketprice">가격</div>
+                        <div class="num">수량</div>
+                        <div class="sum">합계</div>
+                    </div>
+                    <div class="split"></div>
+                </div>
+        
+                <div class="row data">
+                    <div class="subdiv">
+                        <!-- <div class="check"><input type="checkbox" name="buy" value="260" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div> -->
+                        <div class="img"><img src="img/donsimonOrange.png" width="60"></div>
+                        <div class="pname">
+                            <span>돈시몬 착즙 오랜지 주스 1L</span>
+                        </div>
+                    </div>
+                    <div class="subdiv">
+                        <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="3500">3,500원</div>
+                        <div class="num">
+                            <div class="updown">
+                                <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="0" onkeyup="javascript:basket.changePNum(1);">
+                                <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                                <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                            </div>
+                        </div>
+                        <div class="sum">0원</div>
+                    </div>
+                </div>
+                <div class="row data">
+                    <div class="subdiv">
+                        <!-- <div class="check"><input type="checkbox" name="buy" value="261" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div> -->
+                        <div class="img"><img src="./img/basket2.jpg" width="60"></div>
+                        <div class="pname">
+                            <span>아메리카노(ice)</span>
+                        </div>
+                    </div>
+                    <div class="subdiv">
+                        <div class="basketprice"><input type="hidden" name="p_price" id="p_price2" class="p_price" value="7000">7,000원</div>
+                        <div class="num">
+                            <div class="updown">
+                                <input type="text" name="p_num2" id="p_num2" size="2" maxlength="4" class="p_num" value="0" onkeyup="javascript:basket.changePNum(2);">
+                                <span onclick="javascript:basket.changePNum(2);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                                <span onclick="javascript:basket.changePNum(2);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                            </div>
+                        </div>
+                        <div class="sum">0원</div>
+                    </div>
+                </div>
+                <div class="row data">
+                    <div class="subdiv">
+                        <!-- <div class="check"><input type="checkbox" name="buy" value="262" checked="" onclick="javascript:basket.checkItem();">&nbsp;</div> -->
+                        <div class="img"><img src="./img/basket3.jpg" width="60"></div>
+                        <div class="pname">
+                            <span>물품 이름</span>
+                        </div>
+                    </div>
+                    <div class="subdiv">
+                        <div class="basketprice"><input type="hidden" name="p_price" id="p_price3" class="p_price" value="5500">5,500원</div>
+                        <div class="num">
+                            <div class="updown">
+                                <input type="text" name="p_num3" id="p_num3" size="2" maxlength="4" class="p_num" value="0" onkeyup="javascript:basket.changePNum(3);">
+                                <span onclick="javascript:basket.changePNum(3);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+                                <span onclick="javascript:basket.changePNum(3);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+                            </div>
+                        </div>
+                        <div class="sum">0원</div>
+                    </div>
+                </div>
             </div>
-            
+            <br>
+            <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: 0개</div>
+            <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: 0원</div>
+    
+            <div id="goorder" class="">
+                <div class="clear"></div>
+                <div class="buttongroup center-align cmd">
+                    <a href="javascript:void(0);">선택한 상품 주문</a>
+                </div>
+            </div>
         </form>
-        <br>
-        <a href="checkOut.html">선택목록 보기</a>
-        <br>
     </div>
     <script src="app.js"></script>
     
