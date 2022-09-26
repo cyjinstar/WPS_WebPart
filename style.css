@@ -39,8 +39,7 @@
         background-color: #f4f4f4;
     }
     .basketdiv .row > .subdiv {
-        display: block;
-        float: left;
+        display: flex;
     }
     .basketdiv .row > .subdiv:nth-child(1) {
         width: 50%;
