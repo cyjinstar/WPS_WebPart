@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title> WPS System </title>
+  </head>
+  <body>
+    <h1>Welcome to enter WPS Cafe</h1>
+    <form id="login-form">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <input type="submit" value="Log In" />
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
+
+    <div id="menu-division" class="hidden">
+    <h1> -MENU- </h1>
+    
+    <script> session.getAttributeById("username") </script>님 환영합니다!
+    
+    <script>
+    const receivedData = location.href.split('username')[1];
+        console.log(receivedData); // data
+        
+        // 전달받은 데이터가 한글일 경우
+        console.log(decodeURI(receivedData));
+    </script> 
+    
+    <form name ="selProductFrom" method="post" action="add.html">
+    <p>Americano<br>4000won</p>
+    <img 
+    width="150px"
+    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdHhe1HjiVG-6VRD2U0GJldeJxaIvHIxnzQ&usqp=CAU">
+    <br>
+    <input type="number"/>
+    <select class="">
+        <option>HOT</option>
+        <option>ICE</option>
+    </select>
+    <input type="submit" value="추가" />
+    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
+
+    
+    <p>CafeLatte<br>4500won</p>
+    <img 
+    width="150px"
+    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpfmSN5Q5YlTFSoa-nJKo2JiaO1DsIQMyyZQ&usqp=CAU">
+    <br>
+    <input type="number"/>
+    <select class="">
+        <option>HOT</option>
+        <option>ICE</option>
+    </select>
+    <input  type="submit" value="추가" />
+    <p style="margin-top: 50px; margin-bottom: 50px;"></p>
+    <br>
+
+
+
+    <p>LemonAde<br>5000won</p>
+    <img 
+    width="150px"
+    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRgR8epzihOSXXvisz0bvqKuyv6QJ-lgwNpg&usqp=CAU">
+    <br>
+    <input type="number"/>
+    <select class="">
+        <option>ICE</option>
+    </select>
+    <input type="submit" value="추가" />
+    <br>    
+ 
+</form>
+<br>
+<a href="checkOut.html">선택목록 보기</a>
+<br>
+</div>
+    <script src="app.js"></script>
+  </body>
+</html>
