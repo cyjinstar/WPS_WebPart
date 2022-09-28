@@ -5,14 +5,14 @@ const menuDivision = document.querySelector("#menu-division");
 
 const HIDDEN_CLASSNAME = "hidden";
 
-function onLoginSubmit(event) {
+function onLoginSubmit(event) { //로그인 화면에서 submit 했을 때 처리
   event.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
   greeting.innerText = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
   menuDivision.classList.remove(HIDDEN_CLASSNAME);
-}
+} //loginform을 숨기고 greeting과 주문 페이지를 드러내게 한다.
 
 let basket = {
     totalCount: 0, 
@@ -28,20 +28,8 @@ let basket = {
         this.reCalc();
         this.updateUI();
     },
-    //장바구니 전체 비우기
-    delAllItem: function(){
-        document.querySelectorAll('.row.data').forEach(function (item) {
-            item.remove();
-          });
-          //AJAX 서버 업데이트 전송
-        
-          //전송 처리 결과가 성공이면
-          this.totalCount = 0;
-          this.totalPrice = 0;
-          this.reCalc();
-          this.updateUI();
-    },
-    //재계산
+
+    //총 가격 재계산 함수
     reCalc: function(){
         console.log("reCalc Start");
         this.totalCount = 0;
